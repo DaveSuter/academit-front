@@ -1,0 +1,12 @@
+<h2>Destacados</h2>
+<article class="contenedor-cards">
+    <div class="cards" *ngFor="let card of arrayCards | slice:0:4">
+        <figure>
+            <img src="{{card.imgcard}}" alt="">
+        </figure>
+        <div class="contenido">
+            <p><strong>{{card.nombre}}</strong> </p>
+            <a href="#"><button>COMPRAR ENTRADA</button> </a>
+        </div>
+    </div>
+</article>

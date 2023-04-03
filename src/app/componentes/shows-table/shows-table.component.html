@@ -1,0 +1,74 @@
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Card</th>
+            <th scope="col">Banner</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Recinto</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Borrar</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let show of arrayShows">
+        <tr>
+            <th scope="row">{{show.idshow}}</th>
+            <td>{{show.nombre}}</td>
+            <td>{{show.descripcion}}</td>
+            <td>{{show.fecha}}</td>
+            <td>{{show.imgCard}}</td>
+            <td>{{show.imgBaner}}</td>
+            <td>Tipo</td>
+            <td>Recinto</td>
+            <td><a href="" data-bs-toggle="modal" data-bs-target="#editarModal">Editar</a></td>
+            <!-- Modal -->
+            <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modificar</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" id="formulario" method="post" onsubmit="editarShow(event)">
+                                <label for="">Id</label>
+                                <input type="text" name="id" value="{{show.idshow}}" disabled>
+                                <label for=""><strong>Titulo</strong></label>
+                                <input type="text" name="titulo" value="{{show.nombre}}" required>
+                                <label for=""><strong>Imagen para tarjeta</strong> </label>
+                                <input type="text" value={{show.imgCard}} name="imgcard" required>
+                                <label for=""><strong>Fecha</strong> </label>
+                                <input type="date" name="fecha" value={{show.fecha}} required>
+                                <label for=""><strong>Descripcion</strong> </label>
+                                <textarea name="descripcion" id="" value={{show.descripcion}} cols="30" rows="10" required></textarea>
+                                <label for=""><strong>Evento / Espectaculo</strong> </label>
+                                <select type="text" required>
+                                    <option *ngFor="let genero of generos" value="{{genero.nombre}}">{{genero.nombre}}</option>
+                                </select>
+                                <label for=""><strong>Recinto</strong> </label>
+                                <select type="text"  required>
+                                    <option *ngFor="let recinto of recintos" value="{{recinto.nombre}}">{{recinto.nombre}}</option>
+                                </select>
+                                <label for=""><strong>Imagen para banner</strong> </label>
+                                <input type="text" value={{show.imgBaner}} name="imgbaner"> 
+                                <div class="centrar">
+                                    <button id="enviar" class="enviar" type="submit" >Enviar</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="borrarShow()">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin Modal -->
+            <td><a href="">Borrar</a></td>
+        </tr>
+    </tbody>
+</table>
+<h4><a routerLinkActive="active" routerLink="../sellers"><button>Volver</button></a></h4>

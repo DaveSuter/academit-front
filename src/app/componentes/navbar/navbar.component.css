@@ -1,0 +1,43 @@
+.button-modal{
+    width: 150px;
+    height: 30px;
+    border: 1;
+    border-radius: 5px;
+    border-color: rgba(25, 25, 25, 0);
+    background-color: rgb(30, 30, 30);
+    box-shadow: none;
+    color: rgb(225, 225, 225);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    border-style:solid;
+}
+
+.modal-size{
+    width: 400px;
+}
+
+.modal-body form{
+    padding-top: 0;
+    margin-right: 0;
+    width: 80%;
+    margin-left: 10%; /*10% + 10% = 20% entonces completo el 100% con el 80% del width*/
+}
+
+h1{
+    color: rgb(25, 25, 25);
+}
+
+label{
+    color: rgb(25, 25, 25);
+}
+
+form a{
+    text-decoration: none;
+    color: hotpink;
+}
+
+.deshabilitado{
+    color: rgba(225, 225, 225, 0.6);
+    pointer-events: none;
+}

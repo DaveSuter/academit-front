@@ -1,0 +1,26 @@
+
+.contenedor-cards{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.espaciador{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.cards{
+    width: 90%;
+    margin: 20px;
+    border-radius: 6px;
+    color: rgb(30, 30, 30);
+    border: 1px;
+    border-style: solid;
+    border-color: hotpink;
+    cursor: default;
+    overflow: hidden;
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+    font-family: Arial;
+}

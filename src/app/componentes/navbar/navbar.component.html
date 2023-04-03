@@ -1,0 +1,65 @@
+<header>
+    <nav class="container-d">
+        <div>
+            <a routerLinkActive="active" routerLink="main"><img class="logo" src="/assets/img/logoEO2.png"
+                    alt="Logo"></a>
+        </div>
+        <div class="p-nav">
+            <p class="container"><strong>
+                    <a #descarga class="deshabilitado" routerLinkActive="active" routerLink="login">Descargá tu entrada</a>
+                    <a #vende class="deshabilitado" routerLinkActive="active" routerLink="sellers">Vendé con nosotros</a>
+                    <a routerLinkActive="active" routerLink="faq">Preguntas Frecuentes</a>
+                    <a *ngIf="usuarioLogueado==null"><button data-bs-toggle="modal" data-bs-target="#exampleModal">Login</button></a>
+                    <a #out *ngIf="usuarioLogueado!=null"><button (click)="logout()">Logout</button></a>
+                </strong>
+            </p>
+            <!-- Modal Bootstrap -->
+            <div #modal class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content modal-size">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+                            <button id="btn-close-modal" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <!-- Alert -->
+                        <div #alert id="alert-login" class="alert alert-danger" role="alert" style="display: none;">
+                            Email o Password incorrecto.
+                        </div>
+                        <div class="alert alert-danger" role="alert" *ngIf="errorAlert">
+                            Email o Password incorrecto.
+                        </div>
+                        <div class="modal-body">
+                            <form [formGroup]="formGroup" autocomplete="off">
+                                
+                                <label for="email"><strong>Email</strong> </label>
+                                <input type="email" id="emaillogin" name="email" formControlName="email">
+                    
+                                <div *ngIf="formGroup.controls['email'].errors && formGroup.controls['email'].dirty" class="alert alert-warning">
+                                    <p *ngIf="formGroup.controls['email'].errors['email']">Debe contener un signo @</p>
+                                    <p *ngIf="formGroup.controls['email'].errors['required']">Campo obligatorio</p>
+                                    <p *ngIf="formGroup.controls['email'].errors['contieneEspacios']">No puede contener espacios</p>
+                                </div>
+                    
+                                <label for="password"><strong>Contraseña</strong></label>
+                                <input type="password" id="passwordlogin" name="password" formControlName="password">
+                                <div *ngIf="formGroup.controls['password'].errors && formGroup.controls['password'].dirty" class="alert alert-warning">
+                                    <p *ngIf="formGroup.controls['password'].errors['required']">Campo obligatorio</p>
+                                </div>
+                                <a routerLinkActive="active" routerLink="register" data-bs-dismiss="modal">Registrate</a>
+                    
+                                <div class="centrar">
+                                    <button type="button" class="button-modal" id="enviarlogin" type="submit" [disabled]="formGroup.invalid" (click)="enviarFormulario()" data-bs-dismiss="modal">Login</button>
+                                    <button type="button" class="button-modal" data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- Fin Modal -->
+
+        </div>
+    </nav>
+</header>

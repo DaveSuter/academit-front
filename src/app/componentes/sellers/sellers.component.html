@@ -1,0 +1,70 @@
+<section>
+    <h2>Instrucciones para agregar un evento</h2>
+    <h3>Completar el formulario</h3>
+    <article>
+        <ol>
+            <li>
+                <br>
+                <p>Ingrese el título de su evento. Recomendamos nombres cortos, de 25 caracteres.</p>
+                <br>
+            </li>
+            <li>
+                <br>
+                <p>Agregue el link de una imagen para tarjeta, preferentemente de 900px x 800px o relación similar, de lo contrario podría deformarse la misma</p>
+                <br>
+            </li>
+            <li>
+                <br>
+                <p>Ingrese la fecha del evento.</p>
+                <br>
+            </li>
+            <li>
+                <br>
+                <p>Ingrese una descripción del evento.</p>
+                <br>
+            </li>
+            <li>
+                <br>
+                <p>Indique el tipo de evento/espectáculo, seleccionando en el menú desplegable.</p>
+                <br>
+            </li>
+            <li>
+                <br>
+                <p>Indique el recinto en el menú desplegable. En caso de no aparecer, comuníquese por mail para que lo agreguemos.</p>
+                <br>
+            </li>
+            <li>
+                <br>
+                <p>Opcionalmente puede agregar un banner publicitario. Nombrarlo como Banner juntoa un número.</p>
+                <br>
+            </li>
+        </ol>
+    </article>
+    <article class="article-contacto">
+        <form action="" id="formulario" method="post" onsubmit="crearShow(event)">
+            <label for=""><strong>Titulo</strong></label>
+            <input type="text" name="titulo" required>
+            <label for=""><strong>Imagen para tarjeta</strong> </label>
+            <input type="text" value="/assets/img/" name="imgcard" required>
+            <label for=""><strong>Fecha</strong> </label>
+            <input type="date" name="fecha" required>
+            <label for=""><strong>Descripcion</strong> </label>
+            <textarea name="descripcion" id="" cols="30" rows="10" required></textarea>
+            <label for=""><strong>Evento / Espectaculo</strong> </label>
+            <select type="text" required>
+                <option *ngFor="let genero of generos" value="{{genero.nombre}}">{{genero.nombre}}</option>
+            </select>
+            <label for=""><strong>Recinto</strong> </label>
+            <select type="text"  required>
+                <option *ngFor="let recinto of recintos" value="{{recinto.nombre}}">{{recinto.nombre}}</option>
+            </select>
+            <label for=""><strong>Imagen para banner</strong> </label>
+            <input type="text" value="/assets/img/" name="imgbaner"> 
+            <div class="centrar">
+                <button id="enviar" class="enviar" type="submit" >Enviar</button>
+            </div>
+        </form>
+    </article>
+    <h4><a routerLinkActive="active" routerLink="../shows"><button>Ver Shows</button></a></h4>
+    <h4><a routerLinkActive="active" routerLink="../main"><button>Volver</button></a></h4>
+</section>

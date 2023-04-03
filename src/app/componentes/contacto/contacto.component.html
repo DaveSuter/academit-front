@@ -1,0 +1,26 @@
+<section>
+    <h2>Contacto</h2>
+    <article class="article-contacto">
+        <form #formularioTD=ngForm autocomplete="off" (ngSubmit)="enviarForm(formularioTD)">
+            <label for=""><strong>Nombre</strong></label>
+            <input #nameControl="ngModel" type="text" id="nombre" name="nombre" [(ngModel)]="mensaje.nombre" required>
+            <div *ngIf="nameControl.invalid && nameControl.dirty" class="alert alert-warning">
+                <p *ngIf="nameControl.errors['required']">Campo requerido</p>
+            </div>
+            
+            <label for=""><strong>Email</strong> </label>
+            <input #emailControl="ngModel"  type="email" id="email" name="email" [(ngModel)]="mensaje.email" required>
+            <div *ngIf="emailControl.invalid && emailControl.dirty" class="alert alert-warning">
+                <p *ngIf="emailControl.errors['email']">Debe contener un signo @</p>
+                <p *ngIf="emailControl.errors['required']">Campo requerido</p>
+            </div>
+
+            <label for=""><strong>Mensaje</strong> </label>
+            <textarea #textoControl="ngModel" name="texto" id="texto" cols="30" rows="10" [(ngModel)]="mensaje.texto" required></textarea>
+            <div class="centrar">
+                <button id="enviar" type="submit" [disabled]="formularioTD.invalid">Enviar</button>
+            </div>
+        </form>
+    </article>
+    <h4><a routerLinkActive="active" routerLink="../main"><button>Volver</button></a></h4>
+</section>
